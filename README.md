@@ -1,6 +1,5 @@
 # NOUS - The ultimate keyboard
-Nor(wegian|dic) + United States
-Made with scandinavian keyboards in mind. Uses both Shift and AltGr to switch keys.
+Nor(wegian|dic) + United States. Made with scandinavian keyboards in mind. Uses both Shift and AltGr to switch keys.
 
 # Installation
 ```sh
