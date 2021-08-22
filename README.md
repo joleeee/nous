@@ -18,6 +18,9 @@ Section "InputClass"
 EndSection
 ```
 
+# How to use with fcitx
+Sort of unrelated but in case you also have trouble. I added a new input method. I searched for "nous" and selected "Keyboard - English (US)". I think it's conincidental it shows up. Move it to the top of the list, then Addons -> (Advanced) -> X Keyboard Integration -> (Configure) -> (Untick) Allow to Override System XKB Settings. Then restart and AltGr combos should now work, even with Japanese or whatever you may use! This also prevents fcitx from screwing up my capslock, escape and tab rebinds.
+
 # Preview
 ![preview](preview.png)
 As you can see it also has some mathematical symbols, too.\
