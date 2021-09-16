@@ -62,7 +62,7 @@ xkb_symbols "basic" {
     key <AC09>	{ [         l,          L,     rightarrow,     rightarrow ]	};
     key <AC10>	{ [    semicolon, colon, oslash,   Ooblique ] };
     key <AC11>	{ [         apostrophe,          quotedbl,     ae,     AE ]	};
-    key <BKSL>	{ [         backslash,          pipe,     dead_grave,     dead_acute ]	};
+    key <BKSL>	{ [         backslash,          pipe,     dead_acute,     dead_grave ]	};
 
     key <AB01>	{ [    z,       Z,       0x1002124,       0x1002211 ]	};
     key <AB02>	{ [    x,       X,       x,       X ]	};
