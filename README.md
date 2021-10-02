@@ -8,7 +8,9 @@ $ setxkbmap nous
 ```
 For a permanent setup:
 ```sh
-#/etc/X11/xorg.conf.d/00-keyboard.conf
+# linux:   /etc/X11/xorg.conf.d/00-keyboard.conf
+# openbsd: /usr/X11R6/share/X11/xorg.conf.d/00-keyboard.conf
+# make the XkbOptions field empty if you don't want to swap those!
 Section "InputClass"
         Identifier "system-keyboard"
         MatchIsKeyboard "on"
