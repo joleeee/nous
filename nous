@@ -38,8 +38,8 @@ xkb_symbols "basic" {
     key <AE11>	{ [     minus,	underscore,	emdash, 1 ]	};
     key <AE12>	{ [     equals,	plus,    	plusminus, 0x1002213 ]	};
 
-    key <AD01>	{ [         q,          Q,   Greek_omega,    Greek_OMEGA ]	};
-    key <AD02>	{ [         w,          W,   w,    W ]	};
+    key <AD01>	{ [         q,          Q,   0x100211a,    0x100211d ]	};
+    key <AD02>	{ [         w,          W,   Greek_omega,    Greek_OMEGA ]	};
     key <AD03>	{ [         e,          E,   euro,    E ]	};
     key <AD04>	{ [         r,          R,   registered,    trademark ]	};
     key <AD05>	{ [         t,          T,   Greek_tau,    Greek_TAU ]	};
