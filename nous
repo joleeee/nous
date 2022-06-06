@@ -40,7 +40,7 @@ xkb_symbols "basic" {
 
 	key <AD01>	{[	q,		Q,		0x100211a,	0x100211d	]};
 	key <AD02>	{[	w,		W,		Greek_omega,	Greek_OMEGA	]};
-	key <AD03>	{[	e,		E,		euro,		elementof		]};
+	key <AD03>	{[	e,		E,		euro,		elementof	]};
 	key <AD04>	{[	r,		R,		registered,	trademark	]};
 	key <AD05>	{[	t,		T,		Greek_tau,	Greek_TAU	]};
 	key <AD06>	{[	y,		Y,		0x1000296,	0x100035C	]};
