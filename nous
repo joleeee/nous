@@ -73,7 +73,7 @@ xkb_symbols "basic" {
 	key <AB07>	{[	m,		M,		0x10000B5,	0x100210E	]};
 	key <AB08>	{[	comma,		less,		comma,		less		]};
 	key <AB09>	{[	period,		greater,	period,		greater		]};
-	key <AB10>	{[	slash,		question,	slash,		question	]};
+	key <AB10>	{[	slash,		question,	0x1000d93,	question	]};
 
 	key <LSGT>	{[	period,		period,		period,		period		]}; // between SHIFT and Z
 
