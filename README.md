@@ -20,6 +20,15 @@ Section "InputClass"
 EndSection
 ```
 
+# MacOS
+I've put together a custom keymap for macos aswell. I didn't bother changing most of the keys but it's based on some international one so you still get quite a few of them, like ß. I did port æøå though. To install it I'd recommend copying `nous.bundle` into Documents, and then just using Ukelele's `File > Install > Show Organizer`, but you can also just move it wherever it should be. Then relog and select `nous` from the top bar.
+
+![MacOS layout](macos.png)
+
+I'd also recommend [Karabiner-Elements](https://karabiner-elements.pqrs.org/) for swapping the right cmd and option for easier layer switching.
+
+![Karabin remap](karabin.png)
+
 # Arch package
 You can build it yourself by running `makepkg -i` in that repo. `nous` is for the layout file, `switchlayout` is for the tty layout as described below.
 
