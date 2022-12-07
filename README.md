@@ -16,7 +16,7 @@ Section "InputClass"
         MatchIsKeyboard "on"
         Option "XkbLayout" "nous"
         Option "XkbModel" "pc102"
-	Option "XkbOptions" "altwin:swap_lalt_lwin"
+        Option "XkbOptions" "altwin:swap_lalt_lwin"
 EndSection
 ```
 
