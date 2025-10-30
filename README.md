@@ -8,6 +8,8 @@
   - [How to use with fcitx](#how-to-use-with-fcitx)
   - [Switching keys in tty](#switching-keys-in-tty)
 - [MacOS](#macos)
+  - [Installation](#installation-1)
+  - [Other tips](#other-tips)
 
 Nordic + United States. Made with scandinavian keyboards in mind. Uses both Shift and AltGr to shift keys.
 # Preview
@@ -50,10 +52,18 @@ loadkeys switch
 
 
 # MacOS
+The MacOS layout currently does not exactly correspond to the linux layout wrt. to all special symbols. It does however map `æøå` to `option`, in the same way `altgr`/`right alt` is used on linux.
+
+
+## Installation
+1.  move `nous.bundle` into Documents.
+2.  use Ukulele's `File > Install > Show Organizer` to install
+3. sign out and log back in
+4. select `nous` from the top bar
+
 ![MacOS toolbar](macos-toolbar.png)
 
-I've put together a custom keymap for macos aswell. I didn't bother changing most of the keys but it's based on some international one so you still get quite a few of them, like ß. I did port æøå though. To install it I'd recommend copying `nous.bundle` into Documents, and then just using Ukelele's `File > Install > Show Organizer`, but you can also just move it wherever it should be. Then relog and select `nous` from the top bar.
-
+## Other tips
 ![MacOS layout](macos.png)
 
 I'd also recommend [Karabiner-Elements](https://karabiner-elements.pqrs.org/) for swapping the right cmd and option for easier layer switching.
