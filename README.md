@@ -1,7 +1,21 @@
 # NOUS - The ultimate keyboard
-Nordic + United States. Made with scandinavian keyboards in mind. Uses both Shift and AltGr to shift keys.
+- [NOUS - The ultimate keyboard](#nous---the-ultimate-keyboard)
+- [Preview](#preview)
+- [Linux and OpenBSD](#linux-and-openbsd)
+  - [Installation](#installation)
+  - [Arch package](#arch-package)
+  - [How to use with fcitx](#how-to-use-with-fcitx)
+  - [Switching keys in tty](#switching-keys-in-tty)
+- [MacOS](#macos)
 
-# Installation
+Nordic + United States. Made with scandinavian keyboards in mind. Uses both Shift and AltGr to shift keys.
+# Preview
+![preview](preview.png)
+
+Slightly outdated
+
+# Linux and OpenBSD
+## Installation
 ```sh
 # cp nous /usr/share/X11/xkb/symbols
 $ setxkbmap nous
@@ -20,6 +34,20 @@ Section "InputClass"
 EndSection
 ```
 
+## Arch package
+You can build it yourself by running `makepkg -i` in that repo. `nous` is for the layout file, `switchlayout` is for the tty layout as described below.
+
+## How to use with fcitx
+Sort of unrelated but in case you also have trouble. I added a new input method. I searched for "nous" and selected "Keyboard - English (US)". I think it's conincidental it shows up. Move it to the top of the list, then Addons -> (Advanced) -> X Keyboard Integration -> (Configure) -> (Untick) Allow to Override System XKB Settings. Then restart and AltGr combos should now work, even with Japanese or whatever you may use! This also prevents fcitx from screwing up my capslock, escape and tab rebinds.
+
+## Switching keys in tty
+The `switch.map` can be used to switch tab with escape and control with capslock. It does *not* implement the rest of nous. It was edited from `/usr/share/keymaps/xkb/us.map.gz` on an alpine system. `kbd` is a requirement. Apparently keycodes can vary by system. If it doesn't work make your own by using `showkey` to find the codes. Install: `gzip -k switch.map && cp switch.map.gz /usr/share/keymaps/xkb/ && loadkeys switch`. Load automatically on login:
+```sh
+# .profile
+loadkeys switch
+```
+
+
 # MacOS
 I've put together a custom keymap for macos aswell. I didn't bother changing most of the keys but it's based on some international one so you still get quite a few of them, like ß. I did port æøå though. To install it I'd recommend copying `nous.bundle` into Documents, and then just using Ukelele's `File > Install > Show Organizer`, but you can also just move it wherever it should be. Then relog and select `nous` from the top bar.
 
@@ -29,20 +57,3 @@ I'd also recommend [Karabiner-Elements](https://karabiner-elements.pqrs.org/) fo
 
 ![Karabin remap](karabin.png)
 
-# Arch package
-You can build it yourself by running `makepkg -i` in that repo. `nous` is for the layout file, `switchlayout` is for the tty layout as described below.
-
-# How to use with fcitx
-Sort of unrelated but in case you also have trouble. I added a new input method. I searched for "nous" and selected "Keyboard - English (US)". I think it's conincidental it shows up. Move it to the top of the list, then Addons -> (Advanced) -> X Keyboard Integration -> (Configure) -> (Untick) Allow to Override System XKB Settings. Then restart and AltGr combos should now work, even with Japanese or whatever you may use! This also prevents fcitx from screwing up my capslock, escape and tab rebinds.
-
-# Switching keys in tty
-The `switch.map` can be used to switch tab with escape and control with capslock. It does *not* implement the rest of nous. It was edited from `/usr/share/keymaps/xkb/us.map.gz` on an alpine system. `kbd` is a requirement. Apparently keycodes can vary by system. If it doesn't work make your own by using `showkey` to find the codes. Install: `gzip -k switch.map && cp switch.map.gz /usr/share/keymaps/xkb/ && loadkeys switch`. Load automatically on login:
-```sh
-# .profile
-loadkeys switch
-```
-
-# Preview
-![preview](preview.png)
-
-Slightly outdated
