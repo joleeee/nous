@@ -4,6 +4,7 @@
 - [Preview](#preview)
 - [Linux and OpenBSD](#linux-and-openbsd)
   - [Installation](#installation)
+  - [Nix setup](#nix-setup)
   - [Arch package](#arch-package)
   - [How to use with fcitx](#how-to-use-with-fcitx)
   - [Switching keys in tty](#switching-keys-in-tty)
@@ -36,6 +37,21 @@ Section "InputClass"
     Option "XkbOptions" "altwin:swap_lalt_lwin"
 EndSection
 ```
+
+## Nix setup
+In `/etc/nixos/configuration.nix`:
+```nix
+services.xserver.xkb = {
+  layout = "nous";
+  variant = "";
+  extraLayouts.nous = {
+    description = "nous";
+    languages = [ "eng" "nor" "nob" "nno" "swe" "dan" ];
+    symbolsFile = /etc/nixos/nous;
+  };
+};
+```
+And copy the nous file into `/etc/nixos/nous`.
 
 ## Arch package
 You can build it yourself by running `makepkg -i` in that repo. `nous` is for the layout file, `switchlayout` is for the tty layout as described below.
