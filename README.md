@@ -16,8 +16,6 @@ Nordic + United States. Made with scandinavian keyboards in mind. Uses both Shif
 # Preview
 ![preview](preview.png)
 
-Slightly outdated
-
 # Linux and OpenBSD
 ## Installation
 ```sh
