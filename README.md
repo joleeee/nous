@@ -4,7 +4,9 @@
 - [Preview](#preview)
 - [Linux and OpenBSD](#linux-and-openbsd)
   - [Installation](#installation)
-  - [Nix setup](#nix-setup)
+  - [X11 setup](#x11-setup)
+  - [Wayland setup](#wayland-setup)
+  - [Nix specific setup](#nix-specific-setup)
   - [Arch package](#arch-package)
   - [How to use with fcitx](#how-to-use-with-fcitx)
   - [Switching keys in tty](#switching-keys-in-tty)
@@ -13,13 +15,48 @@
   - [Other tips](#other-tips)
 
 Nordic + United States. Made with scandinavian keyboards in mind. Uses both Shift and AltGr to shift keys.
+
 # Preview
 ![preview](preview.png)
 
 # Linux and OpenBSD
 ## Installation
+
+Install the layout globally:
+
 ```sh
-# cp nous /usr/share/X11/xkb/symbols
+# cp nous /usr/share/xkeyboard-config-2
+```
+
+<details>
+  <summary>
+    (legacy instructions)
+  </summary>
+
+  Only do this if you have a xkeyboard-config prior to 2.45, or you
+  [may not be able to update](https://bbs.archlinux.org/viewtopic.php?id=306180)
+
+  ```sh
+  # cp nous /usr/share/X11/xkb/symbols
+  ```
+
+  You can check `XKB_CONFIG_ROOT` if you're unsure.
+
+
+</details>
+
+<!-- ## Installation (user) -->
+If you're the only user, you can install the layout just for yourself:
+
+```sh
+$ mkdir -p ~/.config/xkb/symbols
+$ cp nous ~/.config/xkb/symbols
+```
+
+If you have XDG_CONFIG_HOME set, the path is `$XDG_CONFIG_HOME/xkb/symbols`.
+
+## X11 setup
+```sh
 $ setxkbmap nous
 ```
 For a permanent setup:
@@ -32,11 +69,52 @@ Section "InputClass"
     Option "XkbLayout" "nous"
     Option "XkbModel" "pc102"
     # optional
-    Option "XkbOptions" "altwin:swap_lalt_lwin"
+    # Option "XkbOptions" "altwin:swap_lalt_lwin"
 EndSection
 ```
+## Wayland setup
+Unlike X11, there is no uniform way to set keyboard layouts. You will have to
+consult your compositor's documentation. For GNOME, you need to register the
+layout properly:
 
-## Nix setup
+```sh
+$ mkdir -p ~/.config/xkb/rules
+```
+
+```xml
+# ~/.config/xkb/rules/evdev.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xkbConfigRegistry SYSTEM "xkb.dtd">
+<xkbConfigRegistry version="1.1">
+  <layoutList>
+    <layout>
+      <configItem>
+        <name>nous</name>
+        <shortDescription>nous</shortDescription>
+        <description>Norwegian US (nous)</description>
+        <countryList>
+          <iso3166Id>NO</iso3166Id>
+          <iso3166Id>SE</iso3166Id>
+          <iso3166Id>DK</iso3166Id>
+        </countryList>
+        <languageList>
+          <iso639Id>eng</iso639Id>
+          <iso639Id>nor</iso639Id>
+          <iso639Id>nob</iso639Id>
+          <iso639Id>nno</iso639Id>
+          <iso639Id>swe</iso639Id>
+          <iso639Id>dan</iso639Id>
+        </languageList>
+      </configItem>
+      <variantList/>
+    </layout>
+  </layoutList>
+</xkbConfigRegistry>
+```
+
+And it should appear in the list of keyboard layouts after restarting.
+
+## Nix specific setup
 In `/etc/nixos/configuration.nix`:
 ```nix
 services.xserver.xkb = {
