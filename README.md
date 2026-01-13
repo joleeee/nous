@@ -25,7 +25,7 @@ Nordic + United States. Made with scandinavian keyboards in mind. Uses both Shif
 Install the layout globally:
 
 ```sh
-# cp nous /usr/share/xkeyboard-config-2
+# cp nous /usr/share/xkeyboard-config-2/symbols
 ```
 
 <details>
