@@ -6,6 +6,7 @@
   - [Installation](#installation)
   - [X11 setup](#x11-setup)
   - [Wayland setup](#wayland-setup)
+    - [Cosmic DE](#cosmic-de)
   - [Nix specific setup](#nix-specific-setup)
   - [Arch package](#arch-package)
   - [How to use with fcitx](#how-to-use-with-fcitx)
@@ -113,6 +114,9 @@ $ mkdir -p ~/.config/xkb/rules
 ```
 
 And it should appear in the list of keyboard layouts after restarting.
+
+### Cosmic DE
+Cosmic requires you install the nous symbols file [globally](https://github.com/pop-os/cosmic-epoch/issues/2175#issuecomment-3756365456), and does not respect evdev.xml, instead requiring changes to base.xml, so insert the example layout from `~/.config/xkb/rules` into `/usr/share/X11/xkb/rules/base.xml` instead.
 
 ## Nix specific setup
 In `/etc/nixos/configuration.nix`:
